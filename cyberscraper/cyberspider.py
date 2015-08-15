@@ -16,10 +16,10 @@ class CyberSpider(scrapy.spiders.CrawlSpider):
     name = "cyberspider"
     download_delay = 2
 
-    def __init__(self, startUrl):
+    def __init__(self, **kwargs):
+        startUrl = kwargs.get('startUrl')
         if type(startUrl) is not str:
             raise ValueError('startUrl must be a string representing a valid URL')
-
 
         self.start_urls = [startUrl]
         self.allowed_domains = [urlparse(startUrl).netloc]

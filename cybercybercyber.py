@@ -19,7 +19,7 @@ process = CrawlerProcess({
     'CLOSESPIDER_TIMEOUT': 3600
 })
 
-process.crawl(CyberSpider, startUrl)
+process.crawl(CyberSpider, startUrl=startUrl)
 process.start()
 
 print("")
