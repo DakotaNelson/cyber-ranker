@@ -40,6 +40,9 @@ class CyberSpider(scrapy.spiders.CrawlSpider):
 
         rank = CyberRank()
         rank['url'] = response.url
-        rank['title'] = response.xpath('//title/text()').extract()[0]
+        try:
+            rank['title'] = response.xpath('//title/text()').extract()[0]
+        except IndexError:
+            rank['title'] = ''
         rank['cybers'] = len(cybers)
         return rank
